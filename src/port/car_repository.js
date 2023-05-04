@@ -23,10 +23,13 @@ const CarRepository = {
     async update(data) {
         try {
             const update = {
-                nome: data.nome,
+                ano: data.ano,
+                uf: data.uf,
+                value: data.value,
+                fuelType: data.fuelType
             };
             const options = { new: true };
-            const filter = { produtora: data.produtora };
+            const filter = { plate: data.plate };
             const result = await CarModel.findOneAndUpdate(filter, update, options).exec();
             if (result === null) return []
             return result.toObject();
@@ -37,7 +40,7 @@ const CarRepository = {
 
     async delete(data) {
         try {
-            const result = await CarModel.deleteOne({ nome: data.nome }).exec();
+            const result = await CarModel.deleteOne({ plate: data.plate }).exec();
             return result.deletedCount;
         } catch (error) {
             return error;
