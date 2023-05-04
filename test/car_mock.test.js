@@ -90,6 +90,34 @@ describe('listCars', () => {
     });
 });
 
+describe('listCarByPlate', () => {
+    it('Valid list', async () => {
+        CarModel.findOne = jest.fn().mockImplementation(() => ({
+            exec: () => ({
+                id: 1,
+                plate: "ABC1234",
+                ano: "2020",
+                uf: "MG",
+                value: 18500,
+                fuelType: "Gasolina"
+            }),
+        }));
+
+        expect(await car.getByPlate({
+            plate: 'ABC1234'
+        })).toEqual(
+            expect.objectContaining({
+                id: expect.any(Number),
+                plate: "ABC1234",
+                ano: "2020",
+                uf: "MG",
+                value: 18500,
+                fuelType: "Gasolina"
+            }),
+        );
+
+    });
+});
 
 describe('deleteCar', () => {
     it('Valid delete', async () => {

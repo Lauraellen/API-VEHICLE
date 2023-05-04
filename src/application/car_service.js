@@ -38,6 +38,23 @@ const Car = {
         }
     },
 
+    async getByPlate(data) {
+        try {
+            const validation = validate.validate(data, Constraints.get);
+            if (validation) {
+                const response = Constants.ErrorValidation;
+                response.message = validation;
+                return response;
+            }
+
+            const response = await CarRepository.getByPlate(data);
+
+            return response;
+        } catch (error) {
+            return error;
+        }
+    },
+
     async update(data) {
         try {
             const validation = validate.validate(data, Constraints.update);

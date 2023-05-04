@@ -22,6 +22,12 @@ module.exports = (app) => {
         res.json(response);
     });
 
+    app.patch(`${route}/listCar`, async (req, res) => {
+        const response = await Car.getByPlate(req.body);
+        res.status(Utils.responseStatus(response.name));
+        res.json(response);
+    });
+
     app.delete(`${route}/delete/:plate`, async (req, res) => {
         const data = req.body;
         const { plate } = req.params;

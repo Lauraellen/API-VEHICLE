@@ -64,6 +64,15 @@ const update = {
     }
 };
 
+const get = {
+    plate: {
+        presence: {
+            allowEmpty: false,
+        },
+        type: 'string',
+    },
+};
+
 const deleteBy = {
     plate: {
         presence: {
@@ -76,5 +85,6 @@ const deleteBy = {
 module.exports = {
     create,
     deleteBy,
-    update
+    update,
+    get
 };

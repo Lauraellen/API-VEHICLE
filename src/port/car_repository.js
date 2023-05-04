@@ -20,6 +20,16 @@ const CarRepository = {
         }
     },
 
+    async getByPlate(data) {
+        try {
+            const result = await CarModel.findOne({ plate: data.plate }).exec();
+            return result;
+        } catch (e) {
+            return e;
+        }
+    },
+
+
     async update(data) {
         try {
             const update = {
