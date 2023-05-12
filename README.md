@@ -11,8 +11,6 @@ Aplicação Backend com JS e banco de dados MongoDB
 <h4 align="center"><img src="https://img.icons8.com/external-avoca-kerismaker/64/null/external-Programing-web-development-avoca-kerismaker.png"/>
 </h4>
 
-
-
 <p align="center">
   <a href="#descricao">Descricao</a> •
   <a     href="#execucao">Execucao</a> •
